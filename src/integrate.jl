@@ -25,13 +25,13 @@ function trapz{Tx<:Number, Ty<:Number}(x::Vector{Tx}, y::Vector{Ty})
 end
 
 
-#= Same as above, except deals with arrays instead of vectors for batch integration:
-   Assumes that each of the n separate columns represent n separate datasets and returns
-   2xn vector, where the 1st row contains integral values, 2nd contains errors.
-   Also can specify whether or not to find the area under the absolute value of the
-   curve, or simply the curve itself.
-=#
 function atrapz{Tx<:Number, Ty<:Number}(x::Array{Tx}, y::Array{Ty}, absv::Bool)
+    #= Same as above, except deals with arrays instead of vectors for batch integration:
+	Assumes that each of the n separate columns represent n separate datasets and returns
+	2xn vector, where the 1st row contains integral values, 2nd contains errors.
+	Also can specify whether or not to find the area under the absolute value of the
+	curve, or simply the curve itself.
+    =#
 	
     local m = size(x,1)
     local n = size(x,2)
